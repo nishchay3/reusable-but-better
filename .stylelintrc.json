@@ -1,0 +1,36 @@
+{
+  "extends": "stylelint-config-rational-order",
+  "customSyntax": "postcss-scss",
+  "rules": {
+    "color-no-invalid-hex": true,
+    "max-empty-lines": 1,
+    "declaration-colon-space-after": "always",
+    "declaration-colon-space-before": "never",
+    "unit-no-unknown": true,
+    "property-no-unknown": true,
+    "declaration-block-no-duplicate-custom-properties": true,
+    "declaration-block-no-duplicate-properties": true,
+    "block-no-empty": true,
+    "selector-pseudo-class-no-unknown": true,
+    "no-descending-specificity": [true, { "ignore": ["selectors-within-list"] }],
+    "no-duplicate-selectors": true,
+    "no-duplicate-at-import-rules": true,
+    "unit-allowed-list": ["rem", "em", "%", "s", "deg", "px", "vw", "vh", "fr", "ch"],
+    "shorthand-property-no-redundant-values": true,
+    "property-disallowed-list": ["row-gap", "column-gap"],
+    "unit-case": "lower",
+    "property-case": "lower",
+    "rule-empty-line-before": ["always", { "except": ["first-nested"] }],
+    "declaration-property-unit-disallowed-list": [
+      {
+        "border": ["rem"],
+        "border-radius": ["rem"],
+        "font-size": ["px"],
+        "box-shadow": ["rem"]
+      },
+      { "severity": "warning" }
+    ],
+    "color-no-hex": true,
+    "color-hex-case": "lower"
+  }
+}
