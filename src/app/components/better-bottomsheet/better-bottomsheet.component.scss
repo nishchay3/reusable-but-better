@@ -1,0 +1,31 @@
+.bs-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: transparent;
+
+  .bs-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  .bs-container {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 96vh;
+    margin-top: 100vh;
+    z-index: 2;
+    border-radius: 10px 10px;
+    background: #ffffff;
+  }
+}
