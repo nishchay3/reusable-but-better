@@ -1,4 +1,12 @@
-<div class="bs-wrapper">
-  <div class="bs-overlay" (click)="closeBs()"></div>
-  <div class="bs-container">Hello!</div>
+<div class="bs-overlay" #overlayRef>
+  <div class="bs-scroll-snap-stop-full" (click)="emitBsClosedEvent()" #bsIntersectionRef></div>
+  <div class="bs-scroll-snap-stop" (click)="dismissBs()"></div>
+  <div class="bs-container">
+    <div class="bs-container-dragger">
+      <div class="notch"></div>
+    </div>
+    <div class="bs-portal-outlet">
+      <ng-template [cdkPortalOutlet]="componentPortal"></ng-template>
+    </div>
+  </div>
 </div>

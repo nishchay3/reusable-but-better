@@ -10,7 +10,7 @@ import { UtilityService } from './services/utility.service';
 export class AppComponent implements OnInit, OnDestroy {
   private title = 'Reusable Components';
 
-  public isBSOpen = false;
+  public isBsComponent: any = false;
 
   private listOfSubscriptions = new Subscription();
 
@@ -19,13 +19,20 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const betterBSSubscription = this.utilityService.betterBS$
       .pipe(
-        tap((isBSOpen) => {
-          console.log(isBSOpen);
-          this.isBSOpen = isBSOpen;
+        tap((component) => {
+          this.openBsComponent(component);
         })
       )
       .subscribe();
     this.listOfSubscriptions.add(betterBSSubscription);
+  }
+
+  openBsComponent(component: any): void {
+    this.isBsComponent = component;
+  }
+
+  closeBsComponent(): void {
+    this.isBsComponent = false;
   }
 
   ngOnDestroy(): void {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilityService } from 'src/app/services/utility.service';
+import { BottomsheetContentComponent } from '../template/bottomsheet-content.component';
 
 @Component({
   selector: 'page-better-bottomsheet',
@@ -12,6 +13,6 @@ export class BetterBottomsheetPage implements OnInit {
   ngOnInit(): void {}
 
   openBS(): void {
-    this.utilityService.openBetterBS();
+    this.utilityService.openBetterBS(BottomsheetContentComponent);
   }
 }
