@@ -1,0 +1,25 @@
+<header class="-flex-row header">
+  <nav>
+    <a href="" mat-flat-button color="primary" class="product-name">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="thumb_up"></mat-icon
+      >Reusable But Better
+    </a>
+    <nav class="products">
+      <button
+        mat-flat-button
+        color="primary"
+        *ngFor="let component of components"
+        (click)="navigateToComponent(component.route)"
+      >
+        {{ component.name }}
+      </button>
+    </nav>
+  </nav>
+  <a mat-flat-button color="primary" class="github-link">
+    <img
+      src="https://material.angular.io/assets/img/homepage/github-circle-white-transparent.svg"
+      alt="GitHub"
+    />
+    GitHub
+  </a>
+</header>

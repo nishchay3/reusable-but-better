@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { RouterModule, Routes } from '@angular/router';
 import { BetterBottomsheetModule } from 'src/app/components/better-bottomsheet/better-bottomsheet.module';
 import { BetterBottomsheetPage } from './page/better-bottomsheet.page';
@@ -9,6 +10,6 @@ const routes: Routes = [{ path: '', component: BetterBottomsheetPage }];
 
 @NgModule({
   declarations: [BottomsheetContentComponent, BetterBottomsheetPage],
-  imports: [CommonModule, RouterModule.forChild(routes), BetterBottomsheetModule],
+  imports: [CommonModule, RouterModule.forChild(routes), BetterBottomsheetModule, MatButtonModule],
 })
 export class BetterBottomsheetDemoModule {}

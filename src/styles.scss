@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '/src/assets/styles/helpers';
+
 html,
 body {
   box-sizing: border-box;
@@ -10,4 +12,13 @@ body {
   font-family: 'Source Sans Pro', 'Raleway', 'Lato', 'Roboto', sans-serif;
   font-display: swap;
   background-color: #ffffff;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }

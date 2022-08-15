@@ -1,0 +1,14 @@
+.container {
+  flex-wrap: wrap;
+  padding: 100px 20px 20px;
+}
+
+:host ::ng-deep .mat-card {
+  width: 300px;
+  margin: 20px;
+  cursor: pointer;
+
+  .mat-card-header .mat-card-header-text {
+    margin: 0;
+  }
+}

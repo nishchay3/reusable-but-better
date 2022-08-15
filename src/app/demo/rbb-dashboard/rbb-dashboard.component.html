@@ -1,0 +1,11 @@
+<div class="container -flex-row">
+  <mat-card *ngFor="let component of components" (click)="navigateToComponent(component.route)">
+    <img mat-card-image [src]="component.imageUrl" alt="Product Image" />
+    <mat-card-header>
+      <mat-card-title>{{ component.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ component.desc }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

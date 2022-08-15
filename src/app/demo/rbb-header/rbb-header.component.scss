@@ -1,0 +1,31 @@
+@import '/src/assets/styles/responsive';
+
+.header {
+  font-size: 14px;
+  font-weight: 500;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: #673ab7;
+  // position: fixed;
+  // top: 0;
+
+  .product-name {
+    .mat-icon {
+      margin: 0 4px 3px 0;
+    }
+  }
+
+  .products {
+    display: none;
+    @include tablet {
+      display: inline-block;
+    }
+  }
+
+  .github-link {
+    img {
+      height: 26px;
+      margin: 0 4px 3px 0;
+    }
+  }
+}

@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'bottomsheet',
+    path: '',
     loadChildren: () =>
-      import('./demo/better-bottomsheet-demo/better-bottomsheet-demo.module').then(
-        (m) => m.BetterBottomsheetDemoModule
-      ),
+      import('./demo/rbb-dashboard/rbb-dashboard.module').then((m) => m.RbbDashboardModule),
+  },
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];
 
