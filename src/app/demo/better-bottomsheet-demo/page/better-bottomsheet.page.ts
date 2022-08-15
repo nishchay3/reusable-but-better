@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilityService } from 'src/app/services/utility.service';
+import { BetterBottomsheetService } from '../../../components/better-bottomsheet/better-bottomsheet.service';
 import { BottomsheetContentComponent } from '../template/bottomsheet-content.component';
 
 @Component({
@@ -8,11 +8,11 @@ import { BottomsheetContentComponent } from '../template/bottomsheet-content.com
   styleUrls: ['./better-bottomsheet.page.scss'],
 })
 export class BetterBottomsheetPage implements OnInit {
-  constructor(private readonly utilityService: UtilityService) {}
+  constructor(private readonly betterBottomsheetService: BetterBottomsheetService) {}
 
   ngOnInit(): void {}
 
-  openBS(): void {
-    this.utilityService.openBetterBS(BottomsheetContentComponent);
+  openBetterBs(): void {
+    const bsRef = this.betterBottomsheetService.open(BottomsheetContentComponent);
   }
 }

@@ -3,78 +3,122 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter,
-  Input,
-  OnChanges,
+  Injector,
   OnDestroy,
-  Output,
+  OnInit,
   ViewChild,
 } from '@angular/core';
+import { take, tap } from 'rxjs';
+import { BetterBottomsheetOverlayRef } from './better-bottomsheet-overlay-ref';
+import { BetterBottomsheetStoreService } from './better-bottomsheet-store.service';
+import { BETTER_BS_DATA } from './better-bottomsheet-tokens';
 
 @Component({
-  selector: 'app-better-bottomsheet',
+  selector: 'better-bottomsheet',
   templateUrl: './better-bottomsheet.component.html',
   styleUrls: ['./better-bottomsheet.component.scss'],
 })
-export class BetterBottomsheetComponent implements AfterViewInit, OnChanges, OnDestroy {
+export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild('overlayRef')
   private overlayRef!: ElementRef;
 
-  @ViewChild('bsIntersectionRef')
-  private bsIntersectionRef!: ElementRef;
+  @ViewChild('bsScrollSnapFullRef')
+  private bsScrollSnapFullRef!: ElementRef;
+
+  @ViewChild('bsContainerRef')
+  private bsContainerRef!: ElementRef;
 
   private overlayRefNativeElem!: Element;
 
   private observerRef!: IntersectionObserver;
 
-  @Output() private bsClosedEvent: EventEmitter<void> = new EventEmitter();
-
-  @Input() public component: any;
-
   public componentPortal!: ComponentPortal<any>;
 
-  constructor() {}
+  public backdropClass: string | undefined;
 
-  ngOnChanges(): void {
-    //Todo add simpleChanges
-    if (this.component) this.componentPortal = new ComponentPortal(this.component);
+  public panelClass: string | undefined;
+
+  constructor(
+    private readonly betterBsStoreService: BetterBottomsheetStoreService,
+    private readonly injector: Injector
+  ) {}
+
+  ngOnInit(): void {
+    const component = this.betterBsStoreService.component;
+    const componentInjector = this.createComponentInjector();
+    this.backdropClass = this.betterBsStoreService.backdropClass;
+    this.panelClass = this.betterBsStoreService.panelClass;
+
+    this.componentPortal = new ComponentPortal(component, null, componentInjector);
+
+    this.listenToSubjectEvents();
   }
 
   ngAfterViewInit(): void {
     this.overlayRefNativeElem = this.overlayRef?.nativeElement;
     this.openBs();
-    setTimeout(this.listenToIntersectionChanged.bind(this), 1000);
+    setTimeout(this.listenToIntersectionChanged.bind(this), 500);
+    this.betterBsStoreService.emitAfterOpened();
   }
 
   ngOnDestroy(): void {
     this.observerRef?.disconnect();
+    this.betterBsStoreService.emitAfterDismissed();
   }
 
-  listenToIntersectionChanged(): void {
+  private createComponentInjector(): Injector {
+    const componentInjector = Injector.create({
+      parent: this.injector,
+      providers: [
+        {
+          provide: BetterBottomsheetOverlayRef,
+          useValue: this.betterBsStoreService.betterBsOverlayRef,
+        },
+        {
+          provide: BETTER_BS_DATA,
+          useValue: this.betterBsStoreService.data,
+        },
+      ],
+    });
+    return componentInjector;
+  }
+
+  private listenToSubjectEvents(): void {
+    this.betterBsStoreService.closeBsSubject$
+      .pipe(
+        take(1),
+        tap(() => {
+          this.dismissBs();
+        })
+      )
+      .subscribe();
+  }
+
+  private listenToIntersectionChanged(): void {
     this.observerRef = new IntersectionObserver(
       (entries: IntersectionObserverEntry[]) => {
-        if (entries?.[0]?.isIntersecting) this.emitBsClosedEvent();
+        if (!entries?.[0]?.isIntersecting) this.dismissOverlay();
       },
-      { threshold: 0.7 }
+      { threshold: 0 }
     );
-    this.observerRef?.observe(this.bsIntersectionRef?.nativeElement);
+    this.observerRef?.observe(this.bsContainerRef?.nativeElement);
   }
 
-  openBs(): void {
+  private openBs(): void {
     this.overlayRefNativeElem?.scroll({
-      top: 500,
+      top: this.bsScrollSnapFullRef?.nativeElement?.clientHeight,
       behavior: 'smooth',
     });
   }
 
-  dismissBs(): void {
+  public dismissBs(): void {
     this.overlayRefNativeElem?.scroll({
       top: 0,
       behavior: 'smooth',
     });
   }
 
-  emitBsClosedEvent(): void {
-    this.bsClosedEvent.emit();
+  private dismissOverlay(): void {
+    this.betterBsStoreService.emitDismissOverlay();
   }
 }

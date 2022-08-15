@@ -1,7 +1,7 @@
-<div class="bs-overlay" #overlayRef>
-  <div class="bs-scroll-snap-stop-full" (click)="emitBsClosedEvent()" #bsIntersectionRef></div>
+<div class="bs-overlay" [ngClass]="{backdropClass}" #overlayRef>
+  <div class="bs-scroll-snap-stop-full" (click)="dismissBs()" #bsScrollSnapFullRef></div>
   <div class="bs-scroll-snap-stop" (click)="dismissBs()"></div>
-  <div class="bs-container">
+  <div class="bs-container" [ngClass]="{panelClass}" #bsContainerRef>
     <div class="bs-container-dragger">
       <div class="notch"></div>
     </div>
