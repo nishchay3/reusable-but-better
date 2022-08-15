@@ -87,7 +87,7 @@ export class BetterBottomsheetService {
     return componentRef.instance;
   }
 
-  public dismiss(): void {
-    this.betterBsStoreService.emitCloseBs();
+  public dismiss(result?: any): void {
+    this.betterBsStoreService.emitCloseBs(result);
   }
 }

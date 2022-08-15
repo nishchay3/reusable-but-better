@@ -32,6 +32,8 @@ export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDest
 
   private observerRef!: IntersectionObserver;
 
+  private result: any = undefined;
+
   public componentPortal!: ComponentPortal<any>;
 
   public backdropClass: string | undefined;
@@ -63,7 +65,7 @@ export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDest
 
   ngOnDestroy(): void {
     this.observerRef?.disconnect();
-    this.betterBsStoreService.emitAfterDismissed();
+    this.betterBsStoreService.emitAfterDismissed(this.result);
   }
 
   private createComponentInjector(): Injector {
@@ -87,7 +89,8 @@ export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDest
     this.betterBsStoreService.closeBsSubject$
       .pipe(
         take(1),
-        tap(() => {
+        tap((result: any) => {
+          if (result) this.result = result;
           this.dismissBs();
         })
       )

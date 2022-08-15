@@ -17,13 +17,13 @@ export class BetterBottomsheetStoreService {
 
   public betterBsOverlayRef!: BetterBottomsheetOverlayRef;
 
-  private closeBsSubject = new Subject<void>();
+  private closeBsSubject = new Subject<any>();
   public closeBsSubject$ = this.closeBsSubject.asObservable();
 
   private dismissOverlaySubject = new Subject<void>();
   public dismissOverlaySubject$ = this.dismissOverlaySubject.asObservable();
 
-  private afterDismissedSubject = new Subject<void>();
+  private afterDismissedSubject = new Subject<any>();
   public afterDismissedSubject$ = this.afterDismissedSubject.asObservable();
 
   private afterOpenedSubject = new Subject<void>();
@@ -31,12 +31,12 @@ export class BetterBottomsheetStoreService {
 
   constructor() {}
 
-  public emitCloseBs(): void {
-    this.closeBsSubject.next();
+  public emitCloseBs(result?: any): void {
+    this.closeBsSubject.next(result);
   }
 
-  public emitAfterDismissed(): void {
-    this.afterDismissedSubject.next();
+  public emitAfterDismissed(result?: any): void {
+    this.afterDismissedSubject.next(result);
   }
 
   public emitAfterOpened(): void {

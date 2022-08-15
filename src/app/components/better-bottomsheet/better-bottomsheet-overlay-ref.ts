@@ -16,8 +16,8 @@ export class BetterBottomsheetOverlayRef {
       .subscribe();
   }
 
-  public dismiss(): void {
-    this.betterBsStoreService.emitCloseBs();
+  public dismiss(result?: any): void {
+    this.betterBsStoreService.emitCloseBs(result);
   }
 
   public afterDismissed(): Observable<void> {
