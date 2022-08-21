@@ -1,13 +1,17 @@
+@use '/src/assets/styles/colors';
 @import '/src/assets/styles/responsive';
 
 .header {
   font-size: 14px;
   font-weight: 500;
   justify-content: space-between;
-  padding: 8px 16px;
-  background-color: #673ab7;
-  // position: fixed;
-  // top: 0;
+  padding: 10px 16px;
+  background-color: colors.$theme;
+  box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+  position: fixed;
+  width: calc(100% - 32px);
+  top: 0;
+  z-index: 9;
 
   .product-name {
     .mat-icon {
@@ -28,4 +32,9 @@
       margin: 0 4px 3px 0;
     }
   }
+}
+
+.header-margin {
+  width: 100%;
+  height: 56px;
 }

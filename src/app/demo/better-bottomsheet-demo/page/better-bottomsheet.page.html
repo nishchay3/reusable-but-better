@@ -1,3 +1,35 @@
-<div class="bs-page-wrapper -w-100 -flex-col">
-  <button mat-raised-button color="primary" (click)="openBetterBs()">Click me!</button>
+<div class="bs-page-banner">
+  <h1>Bottom Sheet</h1>
+</div>
+<div class="bs-page-wrapper -flex-col">
+  <mat-tab-group
+    class="bs-page-mat-tab-group -w-100"
+    mat-align-tabs="start"
+    dynamicHeight
+    animationDuration="0"
+  >
+    <mat-tab label="OVERVIEW">
+      Same as
+      <a target="_blank" href="https://material.angular.io/components/bottom-sheet/overview"
+        >Angular Material Bottom Sheet</a
+      >
+      <p>*Instead of 'Mat' use 'Better'</p>
+    </mat-tab>
+    <mat-tab label="API">
+      Same as
+      <a target="_blank" href="https://material.angular.io/components/bottom-sheet/api"
+        >Angular Material Bottom Sheet</a
+      >
+      <p>*Instead of 'Mat' use 'Better'</p>
+    </mat-tab>
+    <mat-tab label="EXAMPLE">
+      <div class="example-border">
+        <p class="example-heading">Bottom Sheet Overview</p>
+        <div class="example-desc">
+          <p>Open comments section</p>
+          <button mat-raised-button (click)="openBetterBs()">Open</button>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>
