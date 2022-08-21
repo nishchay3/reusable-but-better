@@ -107,6 +107,37 @@
           }
         }
       }
+    },
+    "better-bottomsheet": {
+      "projectType": "library",
+      "root": "projects/better-bottomsheet",
+      "sourceRoot": "projects/better-bottomsheet/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/better-bottomsheet/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/better-bottomsheet/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/better-bottomsheet/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/better-bottomsheet/src/test.ts",
+            "tsConfig": "projects/better-bottomsheet/tsconfig.spec.json",
+            "karmaConfig": "projects/better-bottomsheet/karma.conf.js"
+          }
+        }
+      }
     }
   }
 }
