@@ -45,7 +45,7 @@ Afterwards you can access the injected data using the `BETTER_BS_DATA` injection
 
 ```ts
 import { Component, Inject } from '@angular/core';
-import { BETTER_BS_DATA } from '@better-bottomsheet';
+import { BETTER_BS_DATA } from 'better-bottomsheet';
 
 @Component({
   selector: 'hobbit-sheet',

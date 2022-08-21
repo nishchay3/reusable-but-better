@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BetterBottomsheetService } from 'better-bottomsheet';
 import { BottomsheetContentComponent } from '../template/bottomsheet-content.component';
 
 @Component({

@@ -22,9 +22,8 @@
     "@angular/common": "^14.1.0",
     "@angular/core": "^14.1.0"
   },
-  "dependencies": {
+  "allowedNonPeerDependencies": {
     "@angular/animations": "^14.1.1",
-    "@angular/cdk": "^14.1.1",
     "@angular/common": "^14.1.1",
     "@angular/compiler": "^14.1.1",
     "@angular/core": "^14.1.1",
@@ -36,5 +35,6 @@
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
-  }
+  },
+  "dependencies": {}
 }
