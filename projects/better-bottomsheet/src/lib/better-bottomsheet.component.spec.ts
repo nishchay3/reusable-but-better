@@ -11,7 +11,9 @@ describe('BetterBottomsheetComponent', () => {
       declarations: [ BetterBottomsheetComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(BetterBottomsheetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

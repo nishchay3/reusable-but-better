@@ -1,6 +1,4 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { BetterBottomsheetOverlayRef } from 'src/app/components/better-bottomsheet/better-bottomsheet-overlay-ref';
-import { BETTER_BS_DATA } from 'src/app/components/better-bottomsheet/better-bottomsheet-tokens';
 
 @Component({
   selector: 'app-bottomsheet-content',
