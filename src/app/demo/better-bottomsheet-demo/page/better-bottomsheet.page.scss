@@ -4,23 +4,23 @@
 .bs-page-banner {
   width: 100%;
   background-color: colors.$theme;
-  padding-left: 20px;
+  padding-left: 1.25rem;
 
   h1 {
     font-weight: 300;
     margin: 0;
-    padding: 28px 8px;
-    font-size: 20px;
+    padding: 1.75rem 0.5rem;
+    font-size: 1.25rem;
     color: #fff;
   }
 }
 
 .bs-page-wrapper {
   font-weight: 400;
-  padding: 20px 15px;
+  padding: 1.25rem 0.9375rem;
 
   @include tablet {
-    padding: 20px 50px;
+    padding: 1.25rem 3.125rem;
   }
 
   .example-border {
@@ -28,12 +28,27 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
 
     .example-heading {
-      padding: 16px;
+      padding: 1rem;
       color: #0000008a;
     }
 
     .example-desc {
-      padding: 30px;
+      padding: 1.875rem;
+
+      .text-with-hint {
+        display: flex;
+        align-items: flex-start;
+
+        .hint {
+          display: none;
+          font-size: 0.8125rem;
+          color: green;
+          margin-left: 0.5rem;
+          @include tablet {
+            display: inline-block;
+          }
+        }
+      }
     }
   }
 }
@@ -41,16 +56,28 @@
 ::ng-deep .bs-page-mat-tab-group {
   .mat-tab-body-wrapper {
     margin-top: 2rem;
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 1rem;
+    line-height: 1.75rem;
 
     pre {
       border-radius: 5px;
       overflow-x: auto;
-      padding: 20px;
+      padding: 1.25rem;
       white-space: pre-wrap;
       background: rgba(0, 0, 0, 0.01);
       border: 0.5px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .api-content {
+      &:not(:last-child) {
+        margin-bottom: 2.5rem;
+      }
+
+      .api-doc {
+        width: fit-content;
+        padding: 0.1875rem;
+        background: rgba(0, 0, 0, 0.06);
+      }
     }
   }
 }

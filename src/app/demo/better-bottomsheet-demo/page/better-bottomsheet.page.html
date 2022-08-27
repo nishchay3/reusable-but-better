@@ -9,52 +9,55 @@
     animationDuration="0"
   >
     <mat-tab label="OVERVIEW">
-      <h1 id="better-bottomsheet">Better Bottomsheet</h1>
-      <p>This bottom sheet is inspired by Instagram&#39;s reels comment section bottom sheet.</p>
-      <p>
-        The <code>BetterBottomSheet</code> service can be used to open Material Design panels to the
-        bottom of the screen. These panels are intended primarily as an interaction on mobile
-        devices where they can be used as an alternative to dialogs and menus.
-      </p>
-      <h1 id="usage">Usage</h1>
-      <!-- example(bottom-sheet-overview) -->
-      <p>
-        You can open a bottom sheet by calling the <code>open</code> method with a component to be
-        loaded and an optional config object. The <code>open</code> method will return an instance
-        of <code>BetterBottomSheetRef</code>:
-      </p>
-      <pre><code class="lang-ts"><span class="hljs-keyword">const</span> bottomSheetRef = bottomSheet.<span class="hljs-built_in">open</span>(SocialShareComponent, {{ '{' }}
+      <div class="api-content">
+        <h1 id="better-bottomsheet">Better Bottomsheet</h1>
+        <p>This bottom sheet is inspired by Instagram&#39;s reels comment section bottom sheet.</p>
+        <p>
+          The <code>BetterBottomSheet</code> service can be used to open Material Design panels to
+          the bottom of the screen. These panels are intended primarily as an interaction on mobile
+          devices where they can be used as an alternative to dialogs and menus.
+        </p>
+      </div>
+      <div class="api-content">
+        <h1 id="usage">Usage</h1>
+        <!-- example(bottom-sheet-overview) -->
+        <p>
+          You can open a bottom sheet by calling the <code>open</code> method with a component to be
+          loaded and an optional config object. The <code>open</code> method will return an instance
+          of <code>BetterBottomSheetRef</code>:
+        </p>
+        <pre><code class="lang-ts"><span class="hljs-keyword">const</span> bottomSheetRef = bottomSheet.<span class="hljs-built_in">open</span>(SocialShareComponent, {{ '{' }}
   ariaLabel: <span class="hljs-string">'Share on social media'</span>,
 });
 </code></pre>
-      <p>
-        The <code>BetterBottomSheetRef</code> is a reference to the currently-opened bottom sheet
-        and can be used to close it or to subscribe to events. Note that only one bottom sheet can
-        be open at a time. Any component contained inside of a bottom sheet can inject the
-        <code>MatBottomSheetRef</code> as well.
-      </p>
-      <pre><code class="lang-ts">bottomSheetRef.afterDismissed().subscribe(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {{ '{' }}
+        <p>
+          The <code>BetterBottomSheetRef</code> is a reference to the currently-opened bottom sheet
+          and can be used to close it or to subscribe to events. Note that only one bottom sheet can
+          be open at a time. Any component contained inside of a bottom sheet can inject the
+          <code>MatBottomSheetRef</code> as well.
+        </p>
+        <pre><code class="lang-ts">bottomSheetRef.afterDismissed().subscribe(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {{ '{' }}
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Bottom sheet has been dismissed.'</span>);
 });
 
 bottomSheetRef.dismiss();
 </code></pre>
-      <h3 id="sharing-data-with-the-bottom-sheet-component-">
-        Sharing data with the bottom sheet component.
-      </h3>
-      <p>
-        If you want to pass in some data to the bottom sheet, you can do so using the
-        <code>data</code> property:
-      </p>
-      <pre><code class="lang-ts"><span class="hljs-title">const</span> bottomSheetRef = bottomSheet.open(<span class="hljs-type">HobbitSheet</span>, {{ '{' }}
+        <h3 id="sharing-data-with-the-bottom-sheet-component-">
+          Sharing data with the bottom sheet component.
+        </h3>
+        <p>
+          If you want to pass in some data to the bottom sheet, you can do so using the
+          <code>data</code> property:
+        </p>
+        <pre><code class="lang-ts"><span class="hljs-title">const</span> bottomSheetRef = bottomSheet.open(<span class="hljs-type">HobbitSheet</span>, {{ '{' }}
   <span class="hljs-class"><span class="hljs-keyword">data</span>: {{ '{' }} <span class="hljs-title">names</span>: ['<span class="hljs-type">Frodo</span>', '<span class="hljs-type">Bilbo</span>'] },</span>
 });
 </code></pre>
-      <p>
-        Afterwards you can access the injected data using the <code>BETTER_BS_DATA</code> injection
-        token:
-      </p>
-      <pre><code class="lang-ts"><span class="hljs-keyword">import</span> {{ '{' }} Component, Inject } from <span class="hljs-string">'@angular/core'</span>;
+        <p>
+          Afterwards you can access the injected data using the
+          <code>BETTER_BS_DATA</code> injection token:
+        </p>
+        <pre><code class="lang-ts"><span class="hljs-keyword">import</span> {{ '{' }} Component, Inject } from <span class="hljs-string">'@angular/core'</span>;
 <span class="hljs-keyword">import</span> {{ '{' }} BETTER_BS_DATA } from <span class="hljs-string">'better-bottomsheet'</span>;
 
 <span class="hljs-meta">@Component({{ '{' }}
@@ -65,20 +68,41 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
   <span class="hljs-keyword">constructor</span>(<span class="hljs-meta">@Inject(BETTER_BS_DATA)</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">data</span>: {{ '{' }} names: string[] }) {{ '{' }}}
 }
 </code></pre>
+      </div>
     </mat-tab>
     <mat-tab label="API">
-      Same as
-      <a target="_blank" href="https://material.angular.io/components/bottom-sheet/api"
-        >Angular Material Bottom Sheet</a
-      >
-      <p>*Instead of 'Mat' use 'Better'</p>
+      <div class="api-content">
+        <h1>Installation</h1>
+        <p class="api-doc"><code>npm i better-bottomsheet</code></p>
+      </div>
+      <div class="api-content">
+        <h1>API reference for Better bottom-sheet</h1>
+        <p class="api-doc">
+          <code
+            >import {{ '{' }}MatBottomSheetModule{{ '{' }} from
+            '@angular/material/bottom-sheet';</code
+          >
+        </p>
+      </div>
+      <div class="api-content">
+        <h1>Services</h1>
+        <div>
+          Same as
+          <a target="_blank" href="https://material.angular.io/components/bottom-sheet/api"
+            >Angular Material Bottom Sheet</a
+          >
+          <span>. Instead of 'Mat' use 'Better'.</span>
+        </div>
+      </div>
     </mat-tab>
     <mat-tab label="EXAMPLE">
       <div class="example-border">
         <p class="example-heading">Bottom Sheet Overview</p>
         <div class="example-desc">
-          <p>Open comments section</p>
-          <button mat-raised-button (click)="openBetterBs()">Open</button>
+          <p class="text-with-hint">
+            Open comments section<span class="hint">(*Best experienced in mobile devices)</span>
+          </p>
+          <button class="open-btn" mat-raised-button (click)="openBetterBs()">Open</button>
         </div>
       </div>
     </mat-tab>
