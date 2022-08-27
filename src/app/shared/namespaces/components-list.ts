@@ -1,3 +1,6 @@
+/**
+ * Holds components list namespace
+ */
 export namespace componentsList {
   export const components = [
     {

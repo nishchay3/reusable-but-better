@@ -6,7 +6,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { BetterBottomsheetModule } from 'better-bottomsheet';
 import { BetterBottomsheetPage } from './page/better-bottomsheet.page';
 import { BottomsheetContentComponent } from './template/bottomsheet-content.component';
-
+/**
+ * Holds routes
+ */
 const routes: Routes = [{ path: '', component: BetterBottomsheetPage }];
 
 @NgModule({

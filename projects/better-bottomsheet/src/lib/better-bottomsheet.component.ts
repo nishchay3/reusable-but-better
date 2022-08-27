@@ -19,32 +19,59 @@ import { BETTER_BS_DATA } from './better-bottomsheet-tokens';
   styleUrls: ['./better-bottomsheet.component.scss'],
 })
 export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDestroy {
+  /**
+   * Holds overlayRef
+   */
   @ViewChild('overlayRef')
   private overlayRef!: ElementRef;
-
+  /**
+   * Holds bsScrollSnapFullRef
+   */
   @ViewChild('bsScrollSnapFullRef')
   private bsScrollSnapFullRef!: ElementRef;
-
+  /**
+   * Holds bsContainerRef
+   */
   @ViewChild('bsContainerRef')
   private bsContainerRef!: ElementRef;
-
+  /**
+   * Holds overlayRefNativeElem
+   */
   private overlayRefNativeElem!: Element;
-
+  /**
+   * Holds observerRef
+   */
   private observerRef!: IntersectionObserver;
-
+  /**
+   * Holds result
+   */
   private result: any = undefined;
-
+  /**
+   * Holds componentPortal
+   */
   public componentPortal!: ComponentPortal<any>;
-
+  /**
+   * Holds backdropClass
+   */
   public backdropClass: string | undefined;
-
+  /**
+   * Holds panelClass
+   */
   public panelClass: string | undefined;
 
+  /**
+   * constructor
+   * @param betterBsStoreService BetterBottomsheetStoreService
+   * @param injector Injector
+   */
   constructor(
     private readonly betterBsStoreService: BetterBottomsheetStoreService,
     private readonly injector: Injector
   ) {}
 
+  /**
+   * On Init
+   */
   ngOnInit(): void {
     const component = this.betterBsStoreService.component;
     const componentInjector = this.createComponentInjector();
@@ -56,6 +83,9 @@ export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDest
     this.listenToSubjectEvents();
   }
 
+  /**
+   * After View init
+   */
   ngAfterViewInit(): void {
     this.overlayRefNativeElem = this.overlayRef?.nativeElement;
     this.openBs();
@@ -63,11 +93,18 @@ export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDest
     this.betterBsStoreService.emitAfterOpened();
   }
 
+  /**
+   * On Destroy
+   */
   ngOnDestroy(): void {
     this.observerRef?.disconnect();
     this.betterBsStoreService.emitAfterDismissed(this.result);
   }
 
+  /**
+   * Creates component injector
+   * @returns Injector
+   */
   private createComponentInjector(): Injector {
     const componentInjector = Injector.create({
       parent: this.injector,
@@ -84,7 +121,9 @@ export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDest
     });
     return componentInjector;
   }
-
+  /**
+   * Listen to subject events
+   */
   private listenToSubjectEvents(): void {
     this.betterBsStoreService.closeBsSubject$
       .pipe(
@@ -97,6 +136,9 @@ export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDest
       .subscribe();
   }
 
+  /**
+   * Listen to intersection changed
+   */
   private listenToIntersectionChanged(): void {
     this.observerRef = new IntersectionObserver(
       (entries: IntersectionObserverEntry[]) => {
@@ -107,6 +149,9 @@ export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDest
     this.observerRef?.observe(this.bsContainerRef?.nativeElement);
   }
 
+  /**
+   * Open Better Bottom Sheet
+   */
   private openBs(): void {
     this.overlayRefNativeElem?.scroll({
       top: this.bsScrollSnapFullRef?.nativeElement?.clientHeight,
@@ -114,6 +159,9 @@ export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDest
     });
   }
 
+  /**
+   * Dismiss Better Bottom Sheet
+   */
   public dismissBs(): void {
     this.overlayRefNativeElem?.scroll({
       top: 0,
@@ -121,6 +169,9 @@ export class BetterBottomsheetComponent implements AfterViewInit, OnInit, OnDest
     });
   }
 
+  /**
+   * Emit event to dismiss overlay
+   */
   private dismissOverlay(): void {
     this.betterBsStoreService.emitDismissOverlay();
   }

@@ -7,10 +7,18 @@ import { BetterBottomsheetOverlayRef, BETTER_BS_DATA } from 'better-bottomsheet'
   styleUrls: ['./bottomsheet-content.component.scss'],
 })
 export class BottomsheetContentComponent implements OnInit {
+  /**
+   *  constructor
+   * @param betterBottomsheetOverlayRef BetterBottomsheetOverlayRef
+   * @param data any
+   */
   constructor(
     private readonly betterBottomsheetOverlayRef: BetterBottomsheetOverlayRef,
     @Inject(BETTER_BS_DATA) public data: any
   ) {}
 
+  /**
+   * On init
+   */
   ngOnInit(): void {}
 }

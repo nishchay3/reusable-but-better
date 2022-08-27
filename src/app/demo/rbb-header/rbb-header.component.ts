@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { componentsList } from 'src/app/shared/namespaces/components-list';
 
@@ -7,13 +7,21 @@ import { componentsList } from 'src/app/shared/namespaces/components-list';
   templateUrl: './rbb-header.component.html',
   styleUrls: ['./rbb-header.component.scss'],
 })
-export class RbbHeaderComponent implements OnInit {
+export class RbbHeaderComponent {
+  /**
+   * Holds navigation components
+   */
   public components = componentsList.components;
-
+  /**
+   *  constructor
+   * @param router Router
+   */
   constructor(private readonly router: Router) {}
 
-  ngOnInit(): void {}
-
+  /**
+   *  Navigate to selected component's page
+   * @param route string
+   */
   navigateToComponent(route: string): void {
     this.router.navigate(['/demo' + route]);
   }
