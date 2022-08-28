@@ -1,6 +1,6 @@
 # Better Bottomsheet
 
-Homepage: [nishchay3.github.io/reusable-but-better](nishchay3.github.io/reusable-but-better)
+Homepage: [nishchay3.github.io/reusable-but-better](https://nishchay3.github.io/reusable-but-better/)
 
 This bottom sheet is inspired by Instagram's reels comment section bottom sheet.
 
