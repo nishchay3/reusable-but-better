@@ -1,6 +1,6 @@
 # Reusable But Better
 
-Homepage: [nishchay3.github.io/reusable-but-better](nishchay3.github.io/reusable-but-better)
+Homepage: [nishchay3.github.io/reusable-but-better](https://nishchay3.github.io/reusable-but-better/)
 
 This repository is intended to provide atomic sharable components and services that a developer needs frequently while creating a frontend application.
 Consuming the libraries published by this repo can reduce developer's effort substantially and decrease the development time.
@@ -10,7 +10,7 @@ Please feel free to use and raise improvements for this project.
 
 ## 1. Better Bottomsheet
 
-Homepage: [text](http://a.com)
+Homepage: [nishchay3.github.io/reusable-but-better](https://nishchay3.github.io/reusable-but-better/)
 
 This bottom sheet is inspired by Instagram's reels comment section bottom sheet.
 
