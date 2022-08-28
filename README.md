@@ -1,5 +1,7 @@
 # Reusable But Better
 
+Homepage: [nishchay3.github.io/reusable-but-better](nishchay3.github.io/reusable-but-better)
+
 This repository is intended to provide atomic sharable components and services that a developer needs frequently while creating a frontend application.
 Consuming the libraries published by this repo can reduce developer's effort substantially and decrease the development time.
 Please feel free to use and raise improvements for this project.
@@ -8,11 +10,19 @@ Please feel free to use and raise improvements for this project.
 
 ## 1. Better Bottomsheet
 
+Homepage: [text](http://a.com)
+
 This bottom sheet is inspired by Instagram's reels comment section bottom sheet.
 
 The `BetterBottomSheet` service can be used to open Material Design panels to the bottom of the screen.
 These panels are intended primarily as an interaction on mobile devices where they can be used as an
 alternative to dialogs and menus.
+
+# Installation
+
+```ts
+npm i better-bottomsheet
+```
 
 ### Usage
 

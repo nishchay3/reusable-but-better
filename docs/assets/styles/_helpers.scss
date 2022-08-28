@@ -1,0 +1,42 @@
+.-flex {
+  display: flex;
+}
+
+.-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.-flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.-flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.-scrollbar-hidden {
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+.-h-100 {
+  height: 100%;
+}
+
+.-w-100 {
+  width: 100%;
+}
+
+.-wh-100 {
+  width: 100%;
+  height: 100%;
+}
