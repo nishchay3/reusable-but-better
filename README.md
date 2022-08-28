@@ -10,8 +10,6 @@ Please feel free to use and raise improvements for this project.
 
 ## 1. Better Bottomsheet
 
-Homepage: [nishchay3.github.io/reusable-but-better](https://nishchay3.github.io/reusable-but-better/)
-
 This bottom sheet is inspired by Instagram's reels comment section bottom sheet.
 
 The `BetterBottomSheet` service can be used to open Material Design panels to the bottom of the screen.

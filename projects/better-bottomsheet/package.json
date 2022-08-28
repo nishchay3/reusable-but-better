@@ -1,12 +1,12 @@
 {
   "name": "better-bottomsheet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Better Bottomsheet",
   "repository": {
     "type": "git",
     "url": "https://github.com/nishchay3/reusable-but-better.git"
   },
-  "homepage": "https://github.com/nishchay3/reusable-but-better",
+  "homepage": "https://nishchay3.github.io/reusable-but-better/",
   "keywords": [
     "bottomsheet",
     "sheet",
